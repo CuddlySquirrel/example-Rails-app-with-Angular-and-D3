@@ -1,0 +1,11 @@
+!!!
+%html(lang="#{@locale}" dir='ltr')
+	%head
+		= render(:partial=>'head')
+		= javascript_include_tag 'steal/steal'
+		= javascript_include_tag 'qunit'
+		= javascript_include_tag 'funcunit/funcunit'
+		= javascript_include_tag 'tests/tests'
+	%body(id="#{@act}" class="#{@con}")
+		= render(:partial=>'flash')
+		= render(:partial=>'qunit')

@@ -1,0 +1,115 @@
+- spec  = spec.blank?  ? [] : spec
+- values  = values.blank?  ? [] : values
+- attrs = attrs.blank? ? {} : attrs
+- text = text.blank? ? '' : text
+- default = default.blank? ? '' : default
+- ermsgs = []
+
+- label = label.blank? ? spec.join(' ').titleize : label
+- begin; required	= (req.blank? and required.blank?)	? '' : 'required'; rescue;end
+
+- id		= "#{spec.join('_')}"
+
+- begin; value = value.blank? ? '' : value; rescue;end
+
+- if spec.length > 1
+	- name = "#{spec[0]}[#{spec[1..-1].join('][')}]"
+	- evalue = "@params[:#{spec.map{|x|x.to_s.to_sym}.join('][:')}]"
+	- evrmsg = "@errors[:#{spec[0]}][:#{spec[1..-1].join('][:')}]"
+- else
+	- name = "#{spec[0]}"
+	- evalue = "@params[:#{name.to_sym}]"
+- puts evalue
+- begin; value = value.blank? ? (spec.blank? and name.blank?) ? '' : eval(evalue) : value; rescue; end
+- begin; ermsgs = eval(evrmsg).blank? ? [] : eval(evrmsg); rescue; end
+
+- if type == :email or type == :password or type == :text
+	- defaults = {:class=>"#{required}", :id=>"#{id}", :name=>"#{name}", :type=>"#{type}", :value=>"#{value}"}
+	.labeledInput
+		%label(for="#{id}")
+			= label
+		.errors
+			- ermsgs.each do |m|
+				= m
+		.input
+			%input{defaults.merge(attrs)}
+- elsif type == :textarea
+	- attrs[:rows] = attrs[:rows].blank? ? 12 : attrs[:rows]
+	- attrs[:cols] = attrs[:cols].blank? ? 80 : attrs[:cols]
+	- defaults = {:class=>"#{required}", :id=>"#{id}", :name=>"#{name}"}
+	.labeledInput
+		%label(for="#{id}")
+			= label
+	.errors
+		- ermsgs.each do |m|
+			= m
+	.input
+		%textarea{defaults.merge(attrs)}
+			= value
+- elsif type == :autocomplete
+	- type = 'text'
+	- values = values.blank? ? [] : values
+	- defaults = {:class=>"autocomplete #{required}", :id=>"#{id}", :name=>"#{name}", :type=>"#{type}", :value=>"#{value}"}
+	.labeledInput
+		%label(for="#{id}")
+			= label
+		.errors
+			- ermsgs.each do |m|
+				= m
+		- defaults[:'data-values'] = "#{values}"
+		.input.autocompleteMenu(id="parent_of_#{id}")
+			%input{defaults.merge(attrs)}
+- elsif type == :hidden
+	%input(type="#{type}" name="#{name}" value="#{value}")
+- elsif type == :submit
+	- str = value.gsub(/[\W\s]/,'')
+	- camelCaseValue = str[0, 1].downcase + str[1..-1]
+	.input
+		%input(type='submit' value="#{value}" id="#{camelCaseValue}")
+- elsif type == :checkbox
+	- values = values.blank? ? [] : values
+	- if values.blank?
+		- values = (default == 't' or default == true or values.blank?) ? ['f','t'] : ['t','f']
+	- defaults = {:class=>"#{required}", :id=>"#{id}", :name=>"#{name}", :type=>"#{type}", :value=>"#{values[1]}"}
+	- checked = checked.blank? ? false : (checked == 1 or checked == 't' or value == values[1]) ? true : false
+	- if value.blank? and checked
+		- defaults[:checked] = 'checked'
+	- else
+		- if (value.to_s == values[1].to_s) or (value==true and values[1].class == Fixnum and not values[1].zero?) or (value==false and values[1].class == Fixnum and values[1].zero?) or ( value.class==Fixnum and not value.to_i.zero?)
+			- defaults[:checked] = 'checked'
+	.labeledInput
+		%label(for="#{id}")
+			= label
+		.errors
+			- ermsgs.each do |m|
+				= m
+		.input
+			%input(type='hidden' name="#{name}" value="#{values[0]}")
+			%input{defaults.merge(attrs)}
+				= text
+- elsif type == :radio
+	.labeledInput
+		%label(for="#{id}")
+			= label
+		.errors
+			- ermsgs.each do |m|
+				= m
+		.input
+			- vi = -1
+			- values.each do |val|
+				- defaults = {:class=>"#{required}", :id=>"#{id}", :name=>"#{name}", :type=>"#{type}", :value=>"#{val}"}
+				- unless value.blank?
+					- if val == value 
+						- defaults[:checked] = 'checked'
+				- else
+					-if checked.class == Fixnum and values.count > 1 and checked == (vi+=1)
+						- defaults[:checked] = 'checked'
+				%input{defaults.merge(attrs)}
+					%span.value
+						= val
+- elsif type == :reset
+	- str = value.gsub(/[\W\s]/,'')
+	- camelCaseValue = str[0, 1].downcase + str[1..-1]
+	.input
+		%input(type='reset' value="#{value}" id="#{camelCaseValue}")
+
