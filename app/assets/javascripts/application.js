@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require d3
+//= require dump
 //= require underscore
 //= require angular
+//= require ng-app
 //= require_tree .
 
