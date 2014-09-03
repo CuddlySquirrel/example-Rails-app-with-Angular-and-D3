@@ -16,6 +16,7 @@
 //= require dump
 //= require underscore
 //= require angular
-//= require ng-app
+//= require ng-demo
+//= require ng-behavior
 //= require_tree .
 

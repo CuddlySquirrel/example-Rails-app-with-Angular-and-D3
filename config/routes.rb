@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'demo#angular'
+  root 'angular#behavior'
+
+  get '/angular/demo'
+  get '/angular/behavior'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
