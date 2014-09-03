@@ -1,0 +1,24 @@
+%div{:'ng-app'=>'demoApp'}
+  %input{:type=>'text', :'ng-model'=>'search.$'}
+  %h1
+    {{search.$}}
+  %div{:'ng-controller'=>'Bibby'}
+    %h1
+      {{data.msg}}
+    %h1
+      {{ rev(data.msg) }}
+    %div{:'ng-repeat'=>'fip in fips | filter:search'}
+      %p
+        %span
+          {{fip.name}}
+        %span
+          {{fip.outfit}}
+      
+  %div{:'ng-controller'=>'Vibby'}
+    %h1
+      {{data.tim}}
+  %h1
+    {{data.msg}}
+  %superman
+  %div( sandgren)
+  .sandgren
