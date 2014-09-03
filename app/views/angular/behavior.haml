@@ -1,5 +1,15 @@
 %div{:'ng-app'=>'behaviorApp'}
-  %div(enter leave)
-    yaks are in the fiewd
-  %div(status)
-  
+  %div{:'ng-controller'=>'Bibby'}
+    %div{:enter=>'green', :leave=>'purple'}
+      yaks are in the fiewd
+    %div(status)
+      %h1
+        {{ rev(data.msg) }}
+      %div{:'ng-repeat'=>'fip in fips | filter:search'}
+        %p
+          %span
+            {{fip.name}}
+          %span
+            {{fip.outfit}}
+
+    
