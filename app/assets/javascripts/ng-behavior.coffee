@@ -1,6 +1,7 @@
 app = angular.module "behaviorApp", []
+
 app.factory 'Data', ()->
-  msg: '3 3 3 - - -',
+  msg: '# b 3 +  ',
   tim: 'bip',
   search: 'bat',
   fips: 
@@ -19,7 +20,7 @@ window.Bibby = ($scope,Data) ->
 app.directive "enter", ()->
   (sc,el,attrs)->
     el.bind 'mouseenter',()->
-      $('div [status]').append('<div>enter<div/>')
+      setStatus('inside')
       el.removeClass attrs.leave
       el.addClass attrs.enter
 
@@ -32,7 +33,7 @@ app.directive "leave", ()->
       
 app.directive 'status',()->
   restrict: 'A'
-  link: setStatus 'top'
+  link: setStatus 'status'
   
 window.setStatus = (text)->
-  $('div [status]').append('<div>'+text+'<div/>')
+  $('div [status]').append('<div>- '+text+' -</div>')

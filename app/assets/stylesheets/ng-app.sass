@@ -1,10 +1,31 @@
-[ng-app]
+h1
+  padding: 0.3em
+[ng\:app]
   div
-    border: 1px solid transparent
+    width: 20em
+    padding: 0.3em
+    margin:
+      top: 0.6em
+      bottom: 0.6em
+    border: 0.3em solid transparent
   .green
-    border: 1px solid green
+    border
+      color: green
     background: GreenYellow
   .purple
-    border: 1px solid indigo
+    border:
+      color: indigo
+      style: dotted
     background: lightcoral
+  .tricks
+    border:
+      style: solid
+      color: #9cc
+    > h1
+      background:
+        color: #eeb
+  [status]
+    border:
+      style: dotted
+      color: #ccc
   
