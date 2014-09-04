@@ -1,7 +1,7 @@
 app = angular.module "behaviorApp", []
 
 app.factory 'Data', ()->
-  msg: '# b 3 +  ',
+  msg: '# b== ',
   tim: 'bip',
   search: 'bat',
   fips: 
@@ -11,29 +11,36 @@ app.factory 'Data', ()->
       {name: 'cozmo',outfit: 'pup'}
     ]
 
-window.Bibby = ($scope,Data) ->
+app.controller 'statusizerController', ($scope,Data) ->
   $scope.data = Data
   $scope.fips = Data.fips
   $scope.rev = (msg) -> 
     msg.split("").reverse().join("")
-
-app.directive "enter", ()->
-  (sc,el,attrs)->
-    el.bind 'mouseenter',()->
-      setStatus('inside')
-      el.removeClass attrs.leave
-      el.addClass attrs.enter
-
-app.directive "leave", ()->
-  (sc,el,attrs)->
-    el.bind 'mouseleave',()->
-      setStatus('out')
-      el.removeClass attrs.enter
-      el.addClass attrs.leave
-      
+  $scope.showit = ()->
+    $('#'+$scope.data.fips[1].name).css({visibility:'visible'})
+  $scope.hideit = ()->
+    $('#'+$scope.data.fips[1].name).css({visibility:'hidden'})
+  $scope.toggleMouseover = (scope,element,self,initClasses)->
+    dat = element.data('event')[self.type]
+    scope.setStatus(dat.s+' '+scope.rev(dat.s))
+    element.removeClass self.target.className
+    element.addClass initClasses+ ' '+element.data('event')[self.type].c
+  $scope.setStatus = (text)->
+    $('div [status]').html('<div>- '+text+' -</div>')
+  
 app.directive 'status',()->
   restrict: 'A'
-  link: setStatus 'status'
+  link:
+    (scope,element,attr)->
+      scope.setStatus 'status'
   
-window.setStatus = (text)->
-  $('div [status]').append('<div>- '+text+' -</div>')
+app.directive "statusizer", ()->
+  (scope,element,attr)->
+    initClasses = attr['class']
+    element.bind 'mouseenter',(self)->
+      scope.toggleMouseover(scope,element,self,initClasses)
+      scope.hideit()
+    element.bind 'mouseleave',(self)->
+      scope.toggleMouseover(scope,element,self,initClasses)
+      scope.showit()
+      

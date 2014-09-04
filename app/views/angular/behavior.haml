@@ -1,13 +1,13 @@
 %div(ng:app='behaviorApp')
-  %div(ng:controller='Bibby')
-    %div(enter='green' leave='purple')
+  %div(ng:controller='statusizerController')
+    %div.bow.trow(statusizer data-event='{"mouseenter":{"c":"green","s":"inside"},"mouseleave":{"c":"purple","s":"out"}}')
       mouseover this
     .tricks
       %h1
         {{ data.msg }}
         {{ rev(data.msg) }}
       %div(ng:repeat='fip in fips | filter:search')
-        %p
+        %p(id="{{fip.name}}")
           %span
             {{fip.name}}
           %span
