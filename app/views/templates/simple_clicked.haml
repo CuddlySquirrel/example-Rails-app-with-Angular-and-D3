@@ -1,0 +1,14 @@
+%div(ng:init='ctrl.init()')
+  %div.bow.trow(ng:class='{purple:!mouseOver,green:mouseOver}' ng:init='mouseOver = false' ng:mouseenter='mouseOver = true' ng:mouseleave='mouseOver = false')  
+    %a(ui-sref='simple')
+      mouseover this
+  .tricks(ng:if='mouseOver')
+    %h1
+      {{ ctrl.data.msg }}
+      {{ rev(ctrl.data.msg) }}
+    %div(ng:repeat='fip in ctrl.data.fips | filter:search')
+      %p(class="{{fip.name}}")
+        %span
+          {{fip.name}}
+        %span
+          {{fip.outfit}}

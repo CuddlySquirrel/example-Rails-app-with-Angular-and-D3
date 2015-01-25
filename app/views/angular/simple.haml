@@ -1,0 +1,17 @@
+%div.ng-cloak(ng:app='demo')
+  .left
+    %div(ng:controller='LeftPanelController as ctrl' ng:init='ctrl.init()')
+      %div.bow.trow(ng:class='{purple:!mouseOverLeft,green:mouseOverLeft}' ng:init='mouseOverLeft = false' ng:mouseenter='mouseOverLeft = true' ng:mouseleave='mouseOverLeft = false')  
+        mouseover this
+      .tricks(ng:if='mouseOverLeft')
+        %h1
+          {{ ctrl.data.msg }}
+          {{ rev(ctrl.data.msg) }}
+        %div(ng:repeat='fip in ctrl.data.fips | filter:search')
+          %p(class="{{fip.name}}")
+            %span
+              {{fip.name}}
+            %span
+              {{fip.outfit}}
+  .right(ui-view='simpleright')
+  .right(ui-view='simplerightclicked')
