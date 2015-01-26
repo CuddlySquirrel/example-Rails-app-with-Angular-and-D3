@@ -1,10 +1,10 @@
 angular.module('demo.controllers').
-controller 'RightPanelDddController', (Right)->
+controller 'RightPanelDddController', (RightFactory)->
 
   class RightPanelController
 
     constructor: ->
-      @data = Right.data 
+      @data = RightFactory.data 
       @data.nums = [34,21,13,7,3]
       @circle = d3.select '#circleNest'
         .append 'svg'

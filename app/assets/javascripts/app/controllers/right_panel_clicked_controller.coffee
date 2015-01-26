@@ -1,5 +1,5 @@
 angular.module('demo.controllers').
-controller 'RightPanelClickedController', (Right)->
+controller 'RightPanelClickedController', (RightFactory)->
 
   class RightPanelClickedController
 

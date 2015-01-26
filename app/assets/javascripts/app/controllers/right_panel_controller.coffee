@@ -1,9 +1,9 @@
 angular.module('demo.controllers').
-controller 'RightPanelController', (Right)->
+controller 'RightPanelController', (RightFactory)->
 
   class RightPanelController
 
     constructor: ->
-      @data = Right.data 
+      @data = RightFactory.data 
 
   new RightPanelController
