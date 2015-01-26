@@ -27,7 +27,7 @@ app.directive 'sandgren',()->
   # scan DOM for elements with attribute 'sandgren' and fire the linked function...
   restrict: 'A',
   link: ()->
-    $('#sandgren').html('bdsm? PARTY!')
+    $('#sandgren').html('dirty sock? PARTY!')
   # scan DOM for elements with class 'sandgren' and fire the linked function...
 #   restrict: 'C', 
 #   link: ()->

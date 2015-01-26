@@ -7,21 +7,18 @@ app.factory 'Data', ()->
   moo: 'silly'
   fips: 
     [
-      {name: 'timmy',outfit: 'tight'}
+      {name: 'timmy',outfit: 'wiggle'}
       {name: 'batman',outfit: 'silly'}
       {name: 'cozmo',outfit: 'pup'}
     ]
 
 app.controller 'StatusCtrl', ($scope,Data) ->
+  console.log 'controller'
   $scope.data = Data
   window.g = $scope.data
   $scope.fips = Data.fips
   $scope.rev = (msg) -> 
-    msg.split("").reverse().join("")
-  $scope.showit = ()->
-    $('.'+$scope.data.fips[1].name).css({visibility:'visible'})
-  $scope.hideit = ()->
-    $('.'+$scope.data.fips[1].name).css({visibility:'hidden'})
+      msg.split("").reverse().join("") $scope.showit = ()-> $('.'+$scope.data.fips[1].name).css({visibility:'visible'}) $scope.hideit = ()-> $('.'+$scope.data.fips[1].name).css({visibility:'hidden'})
   $scope.toggleMouseover = (scope,element,self,initClasses)->
     dat = element.data('event')[self.type]
     scope.setStatus(dat.s+' '+scope.rev(dat.s))
