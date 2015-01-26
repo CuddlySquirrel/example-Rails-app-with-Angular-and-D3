@@ -5,15 +5,15 @@ factory 'LeftFactory',()->
 
     constructor: ->
       @data =
-        msg: '+++ '
+        msg: '++ a message ++ '
         tim: '789'
         search: 'rrr'
         moo: '---'
         fips:
           [
-            {name: 'wombat',outfit: 'wiggle'}
+            {name: 'wombat',outfit: 'fat'}
             {name: 'tarzan',outfit: 'small'}
-            {name: 'cozmo',outfit: 'mud'}
+            {name: 'cozmos',outfit: 'outer space'}
           ]
 
   new LeftFactory
