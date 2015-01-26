@@ -9,7 +9,7 @@ def showDynamicRoutes
   suffixC = '_controller.rb'
   dirsCs = Dir.glob("#{dirCs}/*#{suffixC}").map{|x|File.basename(x).sub(suffixC,'')}
   dirsCs.sort.each do |dirC|
-    Dir.glob("#{dirVs}/#{dirC}/*").each do |fileView|
+    Dir.glob("#{dirVs}/#{dirC}/*").sort.each do |fileView|
       bnFileView = File.basename(fileView,File.extname(fileView))
       puts "#{dirC}/#{bnFileView}"
     end
