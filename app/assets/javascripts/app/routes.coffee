@@ -14,8 +14,8 @@ config ($stateProvider,$urlRouterProvider,$locationProvider) ->
       url: '/angular/hexagonMesh'
       views:
         dddright:
-          templateUrl: '/templates/ddd'
-          controller: 'RightPanelDddController as ctrl' 
+          templateUrl: '/templates/circleNest'
+          controller: 'RightPanelDddController as ctrl'
 
     .state 'scatterplotExample',
       url: '/chart/scatterplotExample'
