@@ -1,5 +1,5 @@
 angular.module('demo.directives').
-directive 'LeftStatusDirective', (Left)->
+directive 'LeftStatusDirective', (LeftFactory)->
   restrict: 'A'
   link: (scope, element, attrs)->
     initClasses = attrs['class']

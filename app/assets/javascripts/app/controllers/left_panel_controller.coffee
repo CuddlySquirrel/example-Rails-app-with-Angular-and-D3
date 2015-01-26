@@ -1,10 +1,10 @@
 angular.module('demo.controllers').
-controller 'LeftPanelController', (Left)->
+controller 'LeftPanelController', (LeftFactory)->
   
   class LeftPanelController
 
     constructor: ->
-      @data = Left.data
+      @data = LeftFactory.data
 
   new LeftPanelController()
   

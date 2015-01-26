@@ -1,7 +1,7 @@
 angular.module('demo.factories').
-factory 'Left',()->
+factory 'LeftFactory',()->
 
-  class Left
+  class LeftFactory
 
     constructor: ->
       @data =
@@ -16,6 +16,6 @@ factory 'Left',()->
             {name: 'cozmo',outfit: 'mud'}
           ]
 
-  new Left()
+  new LeftFactory
   
 
