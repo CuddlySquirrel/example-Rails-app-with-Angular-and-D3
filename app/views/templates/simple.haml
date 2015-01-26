@@ -1,5 +1,5 @@
 %div(ng:init='ctrl.init()')
-  %div.bow.trow(ng:class='{olive:!mouseOver,salmon:mouseOver}' ng:init='mouseOver = false' ng:mouseenter='mouseOver = true' ng:mouseleave='mouseOver = false')  
+  %div.bow.underline(ng:class='{olive:!mouseOver,salmon:mouseOver}' ng:init='mouseOver = false' ng:mouseenter='mouseOver = true' ng:mouseleave='mouseOver = false')  
     %a(ui-sref='simple.clicked')
       mouseover this
   .tricks(ng:if='mouseOver')

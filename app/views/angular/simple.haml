@@ -1,7 +1,7 @@
 %div.ng-cloak(ng:app='demo')
   .left
     %div(ng:controller='LeftPanelController as ctrl' ng:init='ctrl.init()')
-      %div.bow.trow(ng:class='{purple:!mouseOverLeft,green:mouseOverLeft}' ng:init='mouseOverLeft = false' ng:mouseenter='mouseOverLeft = true' ng:mouseleave='mouseOverLeft = false')  
+      %div.bow.underline(ng:class='{purple:!mouseOverLeft,green:mouseOverLeft}' ng:init='mouseOverLeft = false' ng:mouseenter='mouseOverLeft = true' ng:mouseleave='mouseOverLeft = false')  
         mouseover this
       .tricks(ng:if='mouseOverLeft')
         %h1

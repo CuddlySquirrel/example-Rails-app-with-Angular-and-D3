@@ -1,7 +1,7 @@
 %div(ng:app='behaviorApp')
   .left
     %div(ng:controller='StatusCtrl')
-      %div.bow.trow(statusizer data-event='{"mouseenter":{"c":"green","s":"inside"},"mouseleave":{"c":"purple","s":"out"}}')
+      %div.bow.underline(statusizer data-event='{"mouseenter":{"c":"green","s":"inside"},"mouseleave":{"c":"purple","s":"out"}}')
         mouseover this
       .tricks
         %h1
@@ -16,7 +16,7 @@
       %div(status unders='diapers')
   .right
     %div(ng:controller='StatusCtrl')
-      %div.bow.trow(statusizer data-event='{"mouseenter":{"c":"green","s":"inside"},"mouseleave":{"c":"purple","s":"out"}}')
+      %div.bow.underline(statusizer data-event='{"mouseenter":{"c":"green","s":"inside"},"mouseleave":{"c":"purple","s":"out"}}')
         mouseover this
       .tricks
         %h1
