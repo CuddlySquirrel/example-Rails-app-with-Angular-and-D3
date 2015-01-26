@@ -7,7 +7,7 @@
 //= require dump
 //= require underscore
 //= require angular
-//= angular-ui-router
+//= require angular-ui-router
 //= require app/controllers/config
 //= require app/directives/config
 //= require app/factories/config
