@@ -6,6 +6,6 @@ controller 'LeftPanelController', (LeftFactory)->
     constructor: ->
       @data = LeftFactory.data
 
-  new LeftPanelController()
+  new LeftPanelController
   
 

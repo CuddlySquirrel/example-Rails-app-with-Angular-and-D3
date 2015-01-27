@@ -1,7 +1,6 @@
 angular.module('demo').
 config ($stateProvider,$urlRouterProvider,$locationProvider) ->
   $locationProvider.html5Mode true
-  window.sp = $stateProvider
 
   $stateProvider
     .state 'simple',
@@ -16,7 +15,7 @@ config ($stateProvider,$urlRouterProvider,$locationProvider) ->
       views:
         circleNest:
           templateUrl: '/templates/circleNest'
-          controller: 'RightPanelDddController as ctrl'
+          controller: 'CircleNestController as ctrlCircleNest'
 
     .state 'scatterplotExample',
       url: '/chart/scatterplotExample'
@@ -24,3 +23,4 @@ config ($stateProvider,$urlRouterProvider,$locationProvider) ->
         scatterplotExample:
           templateUrl: '/templates/scatterplotExample'
           controller: 'ScatterplotExampleController as ctrl'
+

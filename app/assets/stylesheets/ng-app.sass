@@ -1,42 +1,39 @@
-.left
-  background: #bbb
-  float: left
-  margin:
-    left: 10%
+//return the golden ratio
+@function goldenRatio()
+  @return 1.61803398878024268285
 
-.right
-  background: #ddd
-  float: right
-  margin:
-    right: 10%
-  height: 200px
+//define the standard power function
+@function pow($base,$exponent)
+  $multiplier: $base
+  @for $i from 1 to $exponent
+    $base: $base * $multiplier
+  @return $base
 
-.hex
-  height: 400px
-  background: #d3e7fd
-  position: absolute
-  top: 200px
-  margin-left: 80px
-  margin-right: auto
-  width: 80%
-  height: 600px
+//raise the golden ratio to the power of $n
+@function gr($n)
+  @return pow(goldenRatio(), $n)
 
-.bow
-  font:
-    style: italic
-    size: 1.6em
-.underline
-  text-decoration: underline
+//convert gr($n) to em
+@function grEm($n)
+  @return 1em * gr($n)
+
+//default div width
+$widthDiv: grEm(6)
+
+
+//styles
 h1
-  padding: 0.3em
-[ng\:app]
+  font:
+    size: grEm(1)
+
+#content
   div
-    width: 300px
-    padding: 0.3em
+    width: $widthDiv
+    padding: $widthDiv / gr(8)
     margin:
-      top: 0.6em
-      bottom: 0.6em
-    border: 0.3em solid transparent
+      top: grEm(1)
+      bottom: grEm(2)
+    border: grEm(1) solid transparent
   .salmon
     border:
       color: green
@@ -55,52 +52,9 @@ h1
       color: indigo
       style: dotted
     background: lightcoral
-  .tricks
-    border:
-      style: solid
-      color: #9cc
-    > h1
-      background:
-        color: #eeb
-  [status]
-    border:
-      style: dotted
-      color: #ccc
 
 
-$colorHexagonEmptyFill: white
-$colorHexagonEmptyHover: pink
-$colorHexagonFullFill: cyan
-$colorHexagonMesh: #000000
-$colorHexagonBorder: #000000
-.hexagon 
-  fill: $colorHexagonEmptyFill
-  pointer-events: all
-
-.hexagon path 
-  -webkit-transition: fill 250ms linear
-  transition: fill 250ms linear
-
-.hexagon :hover 
-  fill: $colorHexagonEmptyHover
-
-.hexagon .fill 
-  fill: $colorHexagonFullFill
-
-.mesh 
-  fill: none
-  stroke: $colorHexagonMesh
-  stroke-opacity: .2
-  pointer-events: none
-
-.border 
-  fill: none
-  stroke: $colorHexagonBorder
-  stroke-width: 2px
-  pointer-events: none
-
-// scatter plot
-
+//scatter plot
 .axis path,
 .axis line 
   fill: none

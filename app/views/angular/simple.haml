@@ -1,16 +1,15 @@
 %div.ng-cloak(ng:app='demo')
-  .left
-    %div(ng:controller='LeftPanelController as ctrl' ng:init='ctrl.init()')
-      %div.bow.underline(ng:class='{purple:!mouseOverLeft,green:mouseOverLeft}' ng:init='mouseOverLeft = false' ng:mouseenter='mouseOverLeft = true' ng:mouseleave='mouseOverLeft = false')  
-        mouseover this
-      .tricks(ng:if='mouseOverLeft')
-        %h1
-          {{ ctrl.data.msg }}
-          {{ rev(ctrl.data.msg) }}
-        %div(ng:repeat='fip in ctrl.data.fips | filter:search')
-          %p(class="{{fip.name}}")
-            %span
-              {{fip.name}}
-            %span
-              {{fip.outfit}}
+  .left(ng:controller='LeftPanelController as ctrlLeftPanel' ng:init='ctrlLeftPanel.init()')
+    %div.bow.underline(ng:class='{purple:!mouseOverLeft,green:mouseOverLeft}' ng:init='mouseOverLeft = false' ng:mouseenter='mouseOverLeft = true' ng:mouseleave='mouseOverLeft = false')  
+      mouseover this
+    .tricks(ng:if='mouseOverLeft')
+      %h1
+        {{ ctrlLeftPanel.data.msg }}
+        {{ rev(ctrlLeftPanel.data.msg) }}
+      %div(ng:repeat='fip in ctrlLeftPanel.data.fips | filter:search')
+        %p(class="{{fip.name}}")
+          %span
+            {{fip.name}}
+          %span
+            {{fip.outfit}}
   .right(ui-view='simpleright')
