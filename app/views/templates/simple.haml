@@ -1,0 +1,13 @@
+%div(ng:init='ctrlSimple.init()')
+  %div.bow.underline(ng:class='{olive:!mouseOver,salmon:mouseOver}' ng:init='mouseOver = false' ng:mouseenter='mouseOver = true' ng:mouseleave='mouseOver = false')  
+    mouseover this
+  .tricks(ng:if='mouseOver')
+    %h1
+      {{ ctrlSimple.data.msg }}
+      {{ rev(ctrlSimple.data.msg) }}
+    %div(ng:repeat='fip in ctrlSimple.data.fips | filter:search')
+      %p(class="{{fip.name}}")
+        %span
+          {{fip.name}}
+        %span
+          {{fip.outfit}}
