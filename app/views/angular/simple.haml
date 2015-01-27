@@ -12,4 +12,6 @@
             {{fip.name}}
           %span
             {{fip.outfit}}
-  .right(ui-view='simpleright')
+  .right(ng:controller='CircleNestController as ctrlCircleNest' ui-view='simpleright')
+    %div(ng:init='ctrlCircleNest.init()')
+      #circleNest

@@ -2,6 +2,7 @@
   %div(ng:controller='LeftPanelController as ctrl' ng:init='ctrl.init()')
     %div(ng:class='{purple:!mouseOverLeft,green:mouseOverLeft}' ng:init='mouseOverLeft = false' ng:mouseenter='mouseOverLeft = true' ng:mouseleave='mouseOverLeft = false')  
       %h1
+        pizza
         mouseover this
     .tricks(ng:if='mouseOverLeft')
       %h1
