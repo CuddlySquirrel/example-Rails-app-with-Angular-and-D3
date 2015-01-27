@@ -1,6 +1,7 @@
 angular.module('demo').
 config ($stateProvider,$urlRouterProvider,$locationProvider) ->
   $locationProvider.html5Mode true
+  window.sp = $stateProvider
 
   $stateProvider
     .state 'simple',
@@ -10,10 +11,10 @@ config ($stateProvider,$urlRouterProvider,$locationProvider) ->
           templateUrl: '/templates/simple'
           controller: 'RightPanelController as ctrl'
 
-    .state 'dddright',
+    .state 'circleNest',
       url: '/angular/hexagonMesh'
       views:
-        dddright:
+        circleNest:
           templateUrl: '/templates/circleNest'
           controller: 'RightPanelDddController as ctrl'
 
