@@ -12,8 +12,7 @@ controller 'CircleNestController', (RightFactory)->
         .append 'svg'
 
       @circle.append 'circle'
-        .style 'stroke', 'red'
-        .style 'fill', 'blue'
+        .attr 'class', 'hindMost'
         .attr 'r', 40
         .attr 'cx', 42
         .attr 'cy', 42
@@ -21,9 +20,8 @@ controller 'CircleNestController', (RightFactory)->
       @circle.selectAll '#circleNest'
         .data @data.nums
         .enter().append 'circle'
+          .attr 'class', 'nested'
           .attr 'r', (d)-> d
-          .style 'stroke','pink'
-          .style 'fill', 'olive'
           .attr 'cx', (d)-> 10+d
           .attr 'cy', 40
         
