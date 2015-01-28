@@ -17,9 +17,13 @@
 @function grEm($n)
   @return 1em * gr($n)
 
-//default div width
+//variables
 $widthDiv: grEm(6)
-
+$color1: #2A4B8C
+$color2: #3B74BF
+$color3: #63CAF2
+$color4: #F2AE2E
+$color5: #F28B30
 
 //styles
 h1
@@ -40,15 +44,6 @@ li
     width: $widthDiv
     padding: $widthDiv / gr(8)
     border: grEm(1) solid transparent
-  .salmon
-    border:
-      color: green
-    background: salmon
-  .olive
-    border:
-      color: white
-      style: dotted
-    background: olive
   .green
     border:
       color: purple
@@ -58,7 +53,9 @@ li
       color: indigo
       style: dotted
     background: lightcoral
-
+  
+  #circleNest
+    
 
 //scatter plot
 .axis path,
