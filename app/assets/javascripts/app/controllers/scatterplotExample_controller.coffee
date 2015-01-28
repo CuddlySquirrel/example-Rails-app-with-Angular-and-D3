@@ -70,7 +70,7 @@ controller 'ScatterplotExampleController', ()->
           return
         ).on "mouseout", (d) =>
           tooltip.transition()
-            .duration(500)
+            .duration 500
             .style "opacity", 0
           return
 
@@ -104,7 +104,7 @@ controller 'ScatterplotExampleController', ()->
       drawYAxis()
 
     drawXAxis = ->
-      svg.append("g") # x axis
+      svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)

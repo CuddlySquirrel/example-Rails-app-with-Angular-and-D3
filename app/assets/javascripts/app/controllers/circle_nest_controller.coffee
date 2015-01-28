@@ -10,11 +10,9 @@ controller 'CircleNestController', (RightFactory)->
     init: ->
       @circle = d3.select '#circleNest'
         .append 'svg'
-        .attr 'width', 900
-        .attr 'height', 900
 
       @circle.append 'circle'
-        .style 'stroke', 'gray'
+        .style 'stroke', 'red'
         .style 'fill', 'blue'
         .attr 'r', 40
         .attr 'cx', 42
