@@ -34,7 +34,7 @@ controller 'ScatterplotExampleController', ()->
     xAxis = d3.svg.axis().scale(xScale).orient("bottom")
     yAxis = d3.svg.axis().scale(yScale).orient("left")
       
-    svg = d3.select('body')
+    svg = d3.select('#content')
       .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -127,7 +127,7 @@ controller 'ScatterplotExampleController', ()->
           .style("text-anchor", "end")
           .text "Protein (g)"
 
-    tooltip = d3.select('body')
+    tooltip = d3.select('#content')
       .append("div")
         .attr("class", "tooltip")
         .style("opacity", 0)
@@ -157,6 +157,7 @@ controller 'ScatterplotExampleController', ()->
           d
 
     init: ->
+      console.log 'scatterplot init'
       d3.csv "/static/cereal.csv", (error, data) =>
         numericize(data)
         domainize(data)
