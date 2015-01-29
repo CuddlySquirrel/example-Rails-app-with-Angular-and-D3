@@ -30,6 +30,10 @@ h1
   font:
     size: grEm(1)
   padding: grEm(1)
+h2
+  @extend h1
+  font:
+    size: grEm(1)*0.75
 li
   padding: grEm(1) / 2
 .underline
@@ -43,7 +47,7 @@ li
 #content
   div
     width: $widthDiv
-    padding: $widthDiv / gr(8)
+    padding: $widthDiv / grEm(8)
     border: grEm(1) solid transparent
   .infoOn
     border:
@@ -74,7 +78,8 @@ li
   stroke: #000
 .tooltip 
   position: absolute
-  width: 200px
-  height: 28px
+  width: grEm(2)
+  height: grEm(2)
   pointer-events: none
+  background: rgba(255,255,255, 0.8) 
 

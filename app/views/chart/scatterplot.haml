@@ -1,5 +1,6 @@
 %span.app.ng-cloak(ng:app='demo')
   %h1
-    Interesting Scatterplot. Refresh the page to see new data!
-
+    Interesting Scatterplot
+  %h2
+    Mouseover the dots to identify them. Refresh the page to see new data!
   %span.scatterPlot(ng:controller='ScatterplotController as ctrlScatterplot' ng:init='ctrlScatterplot.init()' ui-view='scatterplot')
