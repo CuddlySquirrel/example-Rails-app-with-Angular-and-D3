@@ -2,8 +2,8 @@ This is a Ruby on Rails application.
 Instructions for getting it to work on a *nix OS:
 *   git clone the code to your box
 *   Navigate to the dir where you put it (use a shell) 
-*   execute ```bundle install```
-*   resolve any missing dependencies using ```gem``` and/or your package manager (Mac users use brew)
-*   ensure the result of the ```bundle install``` command indicates success before continuing
+*   execute `bundle install`
+*   resolve any missing dependencies using `gem` and/or your package manager (Mac users use brew)
+*   ensure the result of the `bundle install` command indicates success before continuing
 *   execute `rails s` from within the code dir
 
