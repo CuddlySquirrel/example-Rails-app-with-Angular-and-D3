@@ -8,7 +8,7 @@ Instructions for getting it to work on a *nix OS:
 * execute `rails s` from within the code dir to create the rails server
 * use a web browser to access the application by navigating to the url indicated by the output of the `rails s` command (something like http://0.0.0.0:3000)
 * if you get a mysql error: 
-* start mysqld: http://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.0/en/automatic-start.html
+  * start mysqld: http://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.0/en/automatic-start.html
   * ensure your root user exists and has the password defined in https://github.com/CuddlySquirrel/code/blob/master/config/database.yml
   * more help here: http://dev.mysql.com/doc/refman/5.5/en/default-privileges.html
 
