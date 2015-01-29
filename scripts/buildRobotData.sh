@@ -20,7 +20,6 @@ function buildScatterPlotData(){
   $max = 540;
 
   $firstTry = randInt($max);
-  # $secondTry = $firstTry + (randomNegative() * randInt($max - rand($max) * rand(3)));
   $secondTry = $firstTry + (randomNegative() * randInt($firstTry - rand($firstTry) * rand(3)));
   $secondTry = $secondTry<0 ? abs($secondTry) : $secondTry; 
 
