@@ -8,3 +8,7 @@ Instructions for getting it to work on a *nix OS:
 *   execute `rails s` from within the code dir
 Here's an idea: why don't we take `SuperiorProject` and turn it into `**Reasonable**Project`.
 
+```
+code
+```
+
