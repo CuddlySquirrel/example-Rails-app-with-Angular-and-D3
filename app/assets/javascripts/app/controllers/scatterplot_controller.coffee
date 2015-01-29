@@ -1,7 +1,7 @@
 angular.module('demo.controllers').
-controller 'ScatterplotExampleController', ()->
+controller 'ScatterplotController', ()->
 
-  class ScatterplotExampleController
+  class ScatterplotController
     csvDir = '/static'
     csvBasename = 'word-list.csv'
     csvFile = "#{csvDir}/#{csvBasename}"
@@ -10,7 +10,7 @@ controller 'ScatterplotExampleController', ()->
     xColumnName = "First Try"
     yColumnName = "Second Try"
 
-    pointRadius = 8
+    pointRadius = 6
     margin =
       top: 40
       right: 20
@@ -168,7 +168,6 @@ controller 'ScatterplotExampleController', ()->
           d
 
     init: ->
-      console.log 'scatterplot init'
       d3.csv csvFile, (error, data) =>
         numericize(data)
         domainize(data)
@@ -176,4 +175,4 @@ controller 'ScatterplotExampleController', ()->
         drawDots(data)
         #drawLegend()
 
-  new ScatterplotExampleController
+  new ScatterplotController

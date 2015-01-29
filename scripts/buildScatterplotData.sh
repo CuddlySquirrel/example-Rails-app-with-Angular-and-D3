@@ -16,13 +16,21 @@ function buildScatterPlotData(){
   perl -lna -e'
   sub randInt { (rand(shift)) }                # generates random integer from 0 to arg
   sub randomNegative { randInt(2)?1:-1; }      # random 1 or -1
+  sub transitionVariance {
+    $maxChoice = 8;
+    $choice = rand($maxChoice);
+    $choice >= $maxChoice*0.9 ? $maxVal : $firstTry;
+  }
 
-  $max = 540;
+  $maxVal = 540;
+  $downwardBias = 2;
 
-  $firstTry = randInt($max);
-  # $secondTry = $firstTry + (randomNegative() * randInt($max - rand($max) * rand(3)));
-  $secondTry = $firstTry + (randomNegative() * randInt($firstTry - rand($firstTry) * rand(6)));
+  $firstTry = randInt($maxVal);
+  
+  $secondTry = $firstTry - (randomNegative() * (randInt($firstTry - rand(transitionVariance()) * rand($downwardBias))));
   $secondTry = $secondTry<0 ? abs($secondTry) : $secondTry; 
+  
+  print STDERR "$firstTry  $secondTry $chooseVar1";
 
   print "\"$F[0]\",$firstTry,$secondTry";
   ' ${sourceFile} >> ${targetFile}
