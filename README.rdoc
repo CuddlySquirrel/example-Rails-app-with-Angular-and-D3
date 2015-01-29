@@ -1,13 +1,13 @@
 This is a Ruby on Rails application. 
 Instructions for getting it to work on a *nix OS:
-*   git clone the code to your box
-*   Navigate to the dir where you put it (use a shell) 
-*   execute `bundle install`
-*   resolve any missing dependencies using `gem` and/or your package manager (Mac users use `brew`)
-*   ensure the result of the `bundle install` command indicates success before continuing
-*   execute `rails s` from within the code dir to create the rails server
-*   use a web browser to access the application by navigating to the url indicated by the output of the `rails s` command (something like http://0.0.0.0:3000)
-*   if you get a mysql error: 
+* git clone the code to your box
+* Navigate to the dir where you put it (use a shell) 
+* execute `bundle install`
+* resolve any missing dependencies using `gem` and/or your package manager (Mac users use `brew`)
+* ensure the result of the `bundle install` command indicates success before continuing
+* execute `rails s` from within the code dir to create the rails server
+* use a web browser to access the application by navigating to the url indicated by the output of the `rails s` command (something like http://0.0.0.0:3000)
+* if you get a mysql error: 
 * start mysqld: http://dev.mysql.com/doc/mysql-linuxunix-excerpt/5.0/en/automatic-start.html
   * ensure your root user exists and has the password defined in https://github.com/CuddlySquirrel/code/blob/master/config/database.yml
   * more help here: http://dev.mysql.com/doc/refman/5.5/en/default-privileges.html
