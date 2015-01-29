@@ -1,3 +1,6 @@
-class ChartController < ApplicationController 
+class ChartController < ApplicationController
+  def scatterplotExample
+    `scripts/buildScatterplotData.sh`
+  end
 end
 
