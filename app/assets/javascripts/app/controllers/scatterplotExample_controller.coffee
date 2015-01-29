@@ -2,6 +2,15 @@ angular.module('demo.controllers').
 controller 'ScatterplotExampleController', ()->
 
   class ScatterplotExampleController
+    csvDir = '/static'
+    csvBasename = 'word-list.csv'
+    csvFile = "#{csvDir}/#{csvBasename}"
+    tooltipColumn = "Name"
+    colorDeterminator = tooltipColumn
+    xColumnName = "First Try"
+    yColumnName = "Second Try"
+
+    pointRadius = 8
     margin =
       top: 40
       right: 20
@@ -15,15 +24,15 @@ controller 'ScatterplotExampleController', ()->
     yScale = d3.scale.linear().range([height,0])
 
     xValue = (d) ->
-      +d.Calories
+      +d[xColumnName]
 
     yValue = (d) ->
-      +d["Protein (g)"]
+      +d[yColumnName]
 
     cValue = (d) ->
-      d.Manufacturer
+      d[colorDeterminator]
 
-    color = d3.scale.category10()
+    color = d3.scale.category20()
 
     xMap = (d) ->
       xScale xValue(d)
@@ -44,12 +53,14 @@ controller 'ScatterplotExampleController', ()->
     drawDots = (data) ->
       i = 0
       _(data).each( (datum) =>
-        cr = 12
         svg.selectAll(".dot").data(data)
           .enter()
             .append("circle")
-            .attr("class", "dot")
-            .attr("r", cr)
+            .attr("class", (d) ->
+              'dot'
+              #"dot #{cValue(d)}"
+            )
+            .attr("r", pointRadius)
             .attr("cx",(d)=>
              xMap(d)
             )
@@ -61,10 +72,10 @@ controller 'ScatterplotExampleController', ()->
         ).on("mouseover", (d) =>
           tooltip
             .transition()
-            .duration(200)
+            .duration 100
             .style "opacity", .9
           tooltip
-            .html(d["Cereal Name"] + "<br/> (" + xValue(d) + ", " + yValue(d) + ")")
+            .html(d[tooltipColumn] + "<br/> (" + xValue(d) + ", " + yValue(d) + ")")
             .style("left", (d3.event.pageX + 5) + "px")
             .style "top", (d3.event.pageY - 28) + "px"
           return
@@ -79,8 +90,8 @@ controller 'ScatterplotExampleController', ()->
 
     numericize = (data)->
       _(data).each( (datum) ->
-        datum.Calories = +datum.Calories
-        datum["Protein (g)"] = +datum["Protein (g)"]
+        datum[xColumnName] = +datum[xColumnName]
+        datum[yColumnName] = +datum[yColumnName]
       )
 
     domainize = (data)->
@@ -113,7 +124,7 @@ controller 'ScatterplotExampleController', ()->
         .attr("x", width )
         .attr("y", -6)
         .style("text-anchor", "end")
-        .text "Calories"
+        .text xColumnName
 
     drawYAxis = ->
       svg.append("g")
@@ -125,7 +136,7 @@ controller 'ScatterplotExampleController', ()->
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text "Protein (g)"
+          .text yColumnName
 
     tooltip = d3.select('#content')
       .append("div")
@@ -158,11 +169,11 @@ controller 'ScatterplotExampleController', ()->
 
     init: ->
       console.log 'scatterplot init'
-      d3.csv "/static/cereal.csv", (error, data) =>
+      d3.csv csvFile, (error, data) =>
         numericize(data)
         domainize(data)
         drawAxes()
         drawDots(data)
-        drawLegend()
+        #drawLegend()
 
   new ScatterplotExampleController

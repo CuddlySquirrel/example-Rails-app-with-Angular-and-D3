@@ -5,7 +5,7 @@ controller 'CircleNestController', (RightFactory)->
 
     constructor: ->
       @data = RightFactory.data
-      @data.nums = [34,21,13,7,3]
+      @data.nums = [37,23,14,9,5]
 
     init: ->
       @circle = d3.select '#circleNest'
@@ -13,17 +13,17 @@ controller 'CircleNestController', (RightFactory)->
 
       @circle.append 'circle'
         .attr 'class', 'hindMost'
-        .attr 'r', 40
-        .attr 'cx', 42
-        .attr 'cy', 42
+        .attr 'r', 60
+        .attr 'cx', 62
+        .attr 'cy', 62
 
       @circle.selectAll '#circleNest'
         .data @data.nums
         .enter().append 'circle'
           .attr 'class', 'nested'
           .attr 'r', (d)-> d
-          .attr 'cx', (d)-> 10+d
-          .attr 'cy', 40
+          .attr 'cx', (d)-> 30+d
+          .attr 'cy', 60
         
       d3.selectAll("circle").transition()
         .duration 600
