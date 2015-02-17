@@ -1,10 +1,9 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: root
-  password: password
-  socket: /var/run/mysqld/mysqld.sock
+  timeout: 5000
+  username: zxcv
 
 development:
   <<: *default
@@ -17,5 +16,3 @@ test:
 production:
   <<: *default
   database: production
-  username: db
-  password: <%= ENV['DATABASE_PASSWORD'] %>
