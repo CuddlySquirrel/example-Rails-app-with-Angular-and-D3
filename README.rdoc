@@ -7,5 +7,5 @@ Instructions for getting it to work on a *nix OS:
 * ensure the result of the `bundle install` command indicates success before continuing
 * execute `rails s` from within the code dir to create the rails server
 * use a web browser to access the application by navigating to the url indicated by the output of the `rails s` command (something like http://0.0.0.0:3000)
-  * this app needs (but does not use) postgreSQL so you'll figure that out maybe.
+  * this app needs (but does not use) postgreSQL 
 
