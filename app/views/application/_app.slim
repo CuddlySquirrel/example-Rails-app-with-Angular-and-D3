@@ -1,8 +1,8 @@
-!!!
-%html(lang="en" dir='ltr')
-  %head
+doctype html
+html(lang="en" dir='ltr')
+  head
     = render(:partial=>'head')
-  %body(id="#{@act}" class="#{@con}")
+  body(id="#{@act}" class="#{@con}")
     #header
       = render(:partial=>'layouts/header')
     #content
