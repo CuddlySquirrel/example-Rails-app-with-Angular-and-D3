@@ -1,14 +1,14 @@
-%span.app.ng-cloak(ng:app='demo')
+span.app.ng-cloak(ng:app='demo')
   .simple(ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()')
     .triggerInfoPhase(ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false')  
       mouseover this
     .info(ng:if='triggerInfoPhase')
-      %h1.message
+      h1.message
         {{ ctrlSimpleInfo.data.msg }}
-      %ul.infoList
-        %li.infoItem(ng:repeat='item in ctrlSimpleInfo.data.infoList | filter:search' class="{{item.name}}")
-          %span.name.underline {{item.name}}
-          %span.desc {{item.desc}}
+      ul.infoList
+        li.infoItem(ng:repeat='item in ctrlSimpleInfo.data.infoList | filter:search' class="{{item.name}}")
+          span.name.underline {{item.name}}
+          span.desc {{item.desc}}
   .right(ng:controller='CircleNestController as ctrlCircleNest' ui-view='simpleright')
-    %div(ng:init='ctrlCircleNest.init()')
+    div(ng:init='ctrlCircleNest.init()')
       #circleNest
