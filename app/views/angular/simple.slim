@@ -1,7 +1,7 @@
 span.app.ng-cloak(ng:app='demo')
   .simple(ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()')
     .triggerInfoPhase(ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false')  
-      mouseover this
+      = 'mouseover this'
     .info(ng:if='triggerInfoPhase')
       h1.message 
         = '{{ ctrlSimpleInfo.data.msg }}'
