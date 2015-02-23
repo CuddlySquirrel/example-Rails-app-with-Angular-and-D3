@@ -19,6 +19,7 @@
 
 //variables
 $widthDiv: grEm(6)
+$colorFoundationLinkDefault: #0078a0
 $color1: #2A4B8C
 $color2: #3B74BF
 $color3: #63CAF2
@@ -109,3 +110,26 @@ body.angular, body.chart
   pointer-events: none
   background: rgba(255,255,255, 0.8) 
 
+//words
+.word
+  .ops
+    .edit
+      // positioning fix
+      margin: 
+        top: goldenRatio() * 0.3em
+      a 
+        border: 1px black solid
+        background: $color2
+        color: $color3
+        &:hover
+          background: $color4 
+          color: $color1
+    .delete
+      .submit
+        padding: goldenRatio() * 0.3em
+        border: 1px black solid
+        background: $color2
+        color: $color3
+        &:hover
+          background: $color4 
+          color: $color1

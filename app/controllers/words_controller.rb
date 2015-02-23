@@ -12,10 +12,6 @@ class WordsController < ApplicationController
     @word = Word.find params['id']
   end
   def show
-    puts 'sssssssssssssssssssssssssssssssssssssssssss'
-    puts 'sssssssssssssssssssssssssssssssssssssssssss'
-    puts 'sssssssssssssssssssssssssssssssssssssssssss'
-    puts 'sssssssssssssssssssssssssssssssssssssssssss'
     @word = Word.find params['id']
   end
   def update
@@ -23,10 +19,6 @@ class WordsController < ApplicationController
     redirect_to words_path
   end
   def destroy
-    puts 'lllllllllllllllllllllllllllllllllllllllllllllllllllllll'
-    puts 'lllllllllllllllllllllllllllllllllllllllllllllllllllllll'
-    puts 'lllllllllllllllllllllllllllllllllllllllllllllllllllllll'
-    puts 'lllllllllllllllllllllllllllllllllllllllllllllllllllllll'
     Word.find(params['id']).destroy
     redirect_to words_path
   end

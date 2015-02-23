@@ -3,9 +3,16 @@
     .title.row
       .columns.large-12
         h1 Showing The Word 
-    .show.row
+    .name.row
       .columns.large-12
         h2
-          = link_to @word['name'], edit_word_path(@word['id'])
-        h3 
-          = link_to 'Delete This Word', word_path(@word['id']), :confirm => 'yeah?', :method => :delete
+          = @word['name']
+    .ops.row
+      .edit.columns.large-3.push-3
+        = link_to 'Edit This Word', edit_word_path(@word['id'])
+      .delete.columns.large-3.pull-3
+        form action="#{word_path(@word['id'])}" method="post" accept-charset='UTF-8'
+          input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
+          input type='hidden' name='_method' value="delete"
+          input.submit type='submit' value='Delete This Word'
+          label.hide for='delete_word' Delete Word #{@word['name']}
