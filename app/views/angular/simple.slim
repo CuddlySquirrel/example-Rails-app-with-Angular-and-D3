@@ -1,16 +1,20 @@
-span.app.ng-cloak(ng:app='demo')
-  .simple(ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()')
-    .triggerInfoPhase(ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false')  
+.app.row.ng-cloak ng:app='demo'
+  .columns.large-12
+    .row
+      .columns.large-6 left
+      .columns.large-6 right
+  .row.simple ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
+    .triggerInfoPhase.columns.large-6 ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false'
       = 'mouseover this'
-    .info(ng:if='triggerInfoPhase')
+    .info ng:if='triggerInfoPhase'
       h1.message 
         = '{{ ctrlSimpleInfo.data.msg }}'
       ul.infoList
-        li.infoItem(ng:repeat='item in ctrlSimpleInfo.data.infoList | filter:search' class="{{item.name}}")
+        li.infoItem ng:repeat='item in ctrlSimpleInfo.data.infoList | filter:search' class="{{item.name}}"
           span.name.underline 
             = '{{item.name}}'
           span.desc 
             = '{{item.desc}}'
-  .right(ng:controller='CircleNestController as ctrlCircleNest' ui-view='simpleright')
-    div(ng:init='ctrlCircleNest.init()')
-      #circleNest
+    .columns.large-6 ng:controller='CircleNestController as ctrlCircleNest' ui-view='simpleright'
+      div ng:init='ctrlCircleNest.init()'
+        #circleNest

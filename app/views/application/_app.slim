@@ -4,8 +4,10 @@ html lang="en" dir='ltr'
     = render :partial => 'head'
   body id="#{@act}" class="#{@con}"
     #header.row
-      = render :partial => 'layouts/header'
+      .columns.large-12
+        = render :partial => 'layouts/header'
     #content.row
-      = yield
+      .columns.large-12
+        = yield
     = render :partial => 'foot'
                       
