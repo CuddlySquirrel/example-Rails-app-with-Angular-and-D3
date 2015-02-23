@@ -27,14 +27,6 @@ $color4: #F2AE2E
 $color5: #F28B30
 
 //styles
-h1
-  font:
-    size: grEm(1)
-  padding: grEm(1)
-h2
-  @extend h1
-  font:
-    size: grEm(1)*0.75
 li
   padding: grEm(1) / 2
 
@@ -70,7 +62,7 @@ li
   a
     margin: grEm(1)
 
-body.angular, body.chart
+body.angular
   #content
     .triggerInfoPhase
       width: $widthDiv
@@ -95,6 +87,17 @@ body.angular, body.chart
         stroke-width: 2
         fill: $color5
 
+body.chart
+  .scatterplotTooltip 
+    position: absolute
+    margin:
+      left: grEm(1)
+    padding: goldenRatio() * 0.3em
+    width: grEm(5)
+    height: goldenRatio() * 3.6em
+    pointer-events: none
+    background: rgba(255,255,255, 0.8) 
+
 //scatter plot
 .axis path,
 .axis line 
@@ -103,12 +106,6 @@ body.angular, body.chart
 
 .dot 
   stroke: #000
-.tooltip 
-  position: absolute
-  width: grEm(2)
-  height: grEm(2)
-  pointer-events: none
-  background: rgba(255,255,255, 0.8) 
 
 //words
 .word

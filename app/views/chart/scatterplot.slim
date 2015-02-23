@@ -1,4 +1,8 @@
-span.app.ng-cloak x-ng-app='demo'
-  h1 Interesting Scatterplot
-  h2 Mouseover the dots to identify them. Refresh the page to see new data!
-  span.scatterPlot x-ng-controller='ScatterplotController as ctrlScatterplot' x-ng-init='ctrlScatterplot.init()' ui-view='scatterplot'
+.app.row.ng-cloak x-ng-app='demo'
+  .scatterPlot.columns.large-12 x-ng-controller='ScatterplotController as ctrlScatterplot' x-ng-init='ctrlScatterplot.init()' ui-view='scatterplot'
+    .row
+      .title.columns.large-12
+        h1 Interesting Scatterplot
+    .row
+      .description.columns.large-12
+        h4 Mouseover the dots to identify them. Refresh the page to see new data!

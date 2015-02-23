@@ -1,5 +1,5 @@
 .app.row.ng-cloak ng:app='demo'
-  .columns.large-12. ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
+  .columns.large-12 ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
     .row
       .triggerInfoPhase.columns.large-6 ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false'
         = 'mouseover this'

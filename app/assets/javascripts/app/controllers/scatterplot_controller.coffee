@@ -140,7 +140,7 @@ controller 'ScatterplotController', ()->
 
     tooltip = d3.select('#content')
       .append("div")
-        .attr("class", "tooltip")
+        .attr("class", "scatterplotTooltip")
         .style("opacity", 0)
 
     drawLegend = ->
