@@ -1,11 +1,11 @@
 doctype html
-html(lang="en" dir='ltr')
+html lang="en" dir='ltr'
   head
-    = render(:partial=>'head')
-  body(id="#{@act}" class="#{@con}")
-    #header
-      = render(:partial=>'layouts/header')
-    #content
+    = render :partial => 'head'
+  body id="#{@act}" class="#{@con}"
+    #header.row
+      = render :partial => 'layouts/header'
+    #content.row
       = yield
-    = render(:partial=>'foot')
+    = render :partial => 'foot'
                       
