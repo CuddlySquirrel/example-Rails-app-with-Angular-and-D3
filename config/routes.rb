@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get 'angular/simple'
 
   get 'chart/scatterplot'
-
+  get ':controller/(:action)'
 end
