@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # default route to show basic angular stuff
   root 'angular#simple'
 
+  get 'angular/simple'
 
-  # dynamic routes = less typing
-  get ':controller/(:action)'
+  get 'chart/scatterplot'
 
 end
