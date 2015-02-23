@@ -1,0 +1,13 @@
+.word.edit.row
+  .columns.large-12
+    .title.row
+      .columns.large-12
+        h1 Edit Word 
+    .form.row
+      .columns.large-12
+        form action="#{word_path(@word['id'])}" method="post" accept-charset='UTF-8'
+          input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
+          input type='hidden' name='_method' value="patch"
+          input type='text' id='edit_word' name='name' value="#{@word['name']}"
+          input type='submit' value='submit'
+          word.hide for='edit_word' Edit Word Name

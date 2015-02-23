@@ -1,0 +1,22 @@
+.word.row
+  .columns.large-12
+    .title.row
+      .columns.large-12
+        h1 All Words
+    .new.row
+      .columns.large-12
+        = link_to 'New Word', new_word_path
+  .columns.large-12
+    ul.list.row
+      .columns.large-12
+        - while @list.length > 0 do
+          .word.row
+            - wordColumns = 3
+            - (0..wordColumns-1).each do
+              - item = @list.shift
+              li.word.columns class="large-#{12/wordColumns}"
+                - if item
+                  span 
+                    = link_to item['name'], word_path(item['id'])
+                - else
+                  span &nbsp;

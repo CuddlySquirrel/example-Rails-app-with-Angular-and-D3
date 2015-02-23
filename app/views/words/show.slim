@@ -1,0 +1,11 @@
+.word.show.row
+  .columns.large-12
+    .title.row
+      .columns.large-12
+        h1 Showing The Word 
+    .show.row
+      .columns.large-12
+        h2
+          = link_to @word['name'], edit_word_path(@word['id'])
+        h3 
+          = link_to 'Delete This Word', word_path(@word['id']), :confirm => 'yeah?', :method => :delete

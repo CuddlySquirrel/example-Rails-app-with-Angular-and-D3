@@ -1,0 +1,12 @@
+.word.new.row
+  .columns.large-12
+    .title.row
+      .columns.large-12
+        h1 Create A New word 
+    .form.row
+      .columns.large-12
+        form action="#{words_path}" method="post" accept-charset='UTF-8'
+          input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
+          input id='new_word' type='text' name='name'
+          input type='submit' value='submit'
+          word.hide for='new_word' New word Name
