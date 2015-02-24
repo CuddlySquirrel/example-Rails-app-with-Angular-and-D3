@@ -9,11 +9,11 @@
     .row.ng-cloak
       .columns.large-12
         .info.ng-cloak ng:if='triggerInfoPhase'
-          h1.message 
+          h1.message.ng-cloak 
             = '{{ ctrlSimpleInfo.data.msg }}'
-          ul.infoList
+          ul.infoList.ng-cloak
             li.infoItem.row ng:repeat='item in ctrlSimpleInfo.data.infoList | filter:search' class="{{item.name}}"
-              span.name.underline.columns.large-1.push-4
+              span.ng-cloak.name.underline.columns.large-1.push-4
                 = '{{item.name}}'
-              span.desc.columns.large-3.pull-4 
+              span.ng-cloak.desc.columns.large-3.pull-4 
                 = '{{item.desc}}'
