@@ -1,14 +1,14 @@
 .app.row.ng-cloak ng:app='demo'
-  .columns.large-12 ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
+  .columns.large-12.ng-cloak ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
     .row
       .triggerInfoPhase.columns.large-6 ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false'
         = 'mouseover this'
       .columns.large-6 ng:controller='CircleNestController as ctrlCircleNest' ui-view='simpleright'
         div ng:init='ctrlCircleNest.init()'
           #circleNest
-    .row
+    .row.ng-cloak
       .columns.large-12
-        .info ng:if='triggerInfoPhase'
+        .info.ng-cloak ng:if='triggerInfoPhase'
           h1.message 
             = '{{ ctrlSimpleInfo.data.msg }}'
           ul.infoList
