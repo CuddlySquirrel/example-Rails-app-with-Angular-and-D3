@@ -1,19 +1,19 @@
 .app.row.ng-cloak ng:app='demo'
-  .columns.large-12.ng-cloak ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
+  .columns.large-12 ng:controller='SimpleInfoController as ctrlSimpleInfo' ng:init='ctrlSimpleInfo.init()'
     .row
       .triggerInfoPhase.columns.large-6 ng:class='{infoOff : !triggerInfoPhase, infoOn : triggerInfoPhase}' ng:init='triggerInfoPhase = false' ng:mouseenter='triggerInfoPhase = true' ng:mouseleave='triggerInfoPhase = false'
         = 'mouseover this'
       .columns.large-6 ng:controller='CircleNestController as ctrlCircleNest' ui-view='simpleright'
         div ng:init='ctrlCircleNest.init()'
           #circleNest
-    .row.ng-cloak
+    .row
       .columns.large-12
-        .info.ng-cloak ng:if='triggerInfoPhase'
-          h1.message.ng-cloak 
+        .info ng:if='triggerInfoPhase'
+          h1.message 
             = '{{ ctrlSimpleInfo.data.msg }}'
-          ul.infoList.ng-cloak
+          ul.infoList
             li.infoItem.row ng:repeat='item in ctrlSimpleInfo.data.infoList | filter:search' class="{{item.name}}"
-              span.ng-cloak.name.underline.columns.large-1.push-4
+              span.name.underline.columns.large-1.push-4
                 = '{{item.name}}'
-              span.ng-cloak.desc.columns.large-3.pull-4 
+              span.desc.columns.large-3.pull-4 
                 = '{{item.desc}}'
