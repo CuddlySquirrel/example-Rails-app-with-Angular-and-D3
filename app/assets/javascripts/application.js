@@ -12,7 +12,5 @@
 //= require app/directives/config
 //= require app/factories/config
 //= require app/config
-//= require ng-demo
-//= require ng-behavior
 //= require_tree .
 

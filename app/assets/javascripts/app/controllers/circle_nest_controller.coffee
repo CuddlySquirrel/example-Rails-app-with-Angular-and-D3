@@ -26,7 +26,7 @@ controller 'CircleNestController', (RightFactory)->
           .attr 'cy', 60
         
       d3.selectAll("circle").transition()
-        .duration 600
+        .duration 1200
         .delay (d,i)-> d*i*10
         .attr 'r', (d)->0.68*d
 
