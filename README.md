@@ -3,6 +3,7 @@ Instructions for getting it to work on a *nix OS:
 * git clone the code to your box
 * Navigate to the repo dir (wherever you put it (use a shell))
 * execute ```bundle install```
+* address any errors you encounter
 * setup your postgres database (ask google if you don't know how)
 * run ```rake db:migrate```
 * resolve any missing dependencies using ```gem``` and/or your package manager (Mac users use ```brew```)
