@@ -1,5 +1,7 @@
 #!/bin/bash
 function buildScatterPlotData(){
+  pwd
+  return
   declare -- headings='"Name","First Try","Second Try"'
 
   declare -- sourceDir='scripts/concerns'
