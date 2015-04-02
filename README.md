@@ -10,5 +10,5 @@ Instructions for getting it to work on a *nix OS:
   * ```alter role YOUR_USER_NAME with createdb;``` update permissions; YOUR_USER_NAME is your nix username
   * ```rake db:create db:migrate``` create and migrate the databases
 * execute ```rails s``` from within the dir where you cloned the code to create the rails server
-* use a web browser to access the application by navigating to the url indicated by the output of the ```rails s``` command (probably something like http://0.0.0.0:3000 or http://localhost:3000)
+* Paste the url indicated by the output of ```rails s``` into a web browser to access the application.
 
