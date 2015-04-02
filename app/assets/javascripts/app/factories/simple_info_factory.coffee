@@ -5,12 +5,11 @@ factory 'SimpleInfoFactory',()->
 
     constructor: ->
       @data =
-        msg: 'Buncha Silly'
+        msg: 'msg from SimpleInfoFactory'
         infoList:
           [
-            {name: 'wombat',desc: 'chubby cute lil fella'}
-            {name: 'tarzan',desc: 'rambunctious vine swinging champion'}
-            {name: 'cozmos',desc: 'outer space cadet'}
+            {name: 'data',desc: 'more data'}
+            {name: 'additional data',desc: 'more additional data'}
           ]
 
   new SimpleInfoFactory
