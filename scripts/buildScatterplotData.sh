@@ -1,15 +1,15 @@
 #!/bin/bash
 function buildScatterPlotData(){
-  pwd
-  echo $0
-  return
+  declare -- scriptDir=`dirname $0`
+  declare -- projectDir=`dirname $scriptDir`
+
   declare -- headings='"Name","First Try","Second Try"'
 
-  declare -- sourceDir='scripts/concerns'
+  declare -- sourceDir="${projectDir}/scripts/concerns"
   declare -- sourceBasename='word-list.txt';
   declare -- sourceFile="${sourceDir}/${sourceBasename}"
 
-  declare -- targetDir='app/views/static'
+  declare -- targetDir="${projectDir}/app/views/static"
   declare -- targetBasename="${sourceBasename%.txt}.csv";
   declare -- targetFile="${targetDir}/${targetBasename}"
 
