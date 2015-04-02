@@ -17,7 +17,7 @@ test:
 production:
   <<: *default
   database: production
-  username: zxcv
-  password: 12eQWEasd
-  host: example-rails-app-with-angular-and-d3.cyq7b12nohlm.us-west-2.rds.amazonaws.com
-  port: 5432
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
