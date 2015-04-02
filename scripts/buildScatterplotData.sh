@@ -1,6 +1,7 @@
 #!/bin/bash
 function buildScatterPlotData(){
   pwd
+  echo $0
   return
   declare -- headings='"Name","First Try","Second Try"'
 
